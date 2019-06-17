@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="beans.UserBean"%>
 <!DOCTYPE html>
+<% UserBean user = (UserBean)session.getAttribute("user"); %>
+
 <html lang="ja">
   <head>
     <!-- Required meta tags -->
@@ -15,10 +18,14 @@
   <body>
   
   	<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
+  		<span class="navbar-text"><%=user.getUserName() %> さん</span>
+  		<ul class="navbar-nav">
+  		</ul>
   		<ul class="navbar-nav ml-auto">
-  			<li class="nav-item"><a href="#" class="nav-link">ログアウト</a></li>
+  			<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
   		</ul>
   	</nav>
+  	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
