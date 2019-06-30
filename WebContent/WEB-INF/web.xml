@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  
   <display-name>CBT</display-name>
-  
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>servlet.LoginServlet</servlet-class>
@@ -21,5 +19,12 @@
     <url-pattern>/jsp/logout</url-pattern>
   </servlet-mapping>
   
-  
+  <servlet>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <servlet-class>servlet.UserRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <url-pattern>/jsp/admin/userRegister</url-pattern>
+  </servlet-mapping>
 </web-app>

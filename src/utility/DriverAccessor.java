@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 public class DriverAccessor {
 	
-	private final static String JDBC_DRIVER="com.mysql.jdbc.Driver";
+	private final static String JDBC_DRIVER="com.mysql.cj.jdbc.Driver";
 	private final static String JDBC_URL="jdbc:mysql://localhost:3306/cbt?useUnicode=true&characterEncoding=UTF-8";
 	private final static String USER_NAME="root";
 	private final static String PASSWORD="";
