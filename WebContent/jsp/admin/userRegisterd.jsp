@@ -20,8 +20,8 @@
   		<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
   			<a class="navbar-brand"><%=user.getUserName() %> さん</a>
   			<ul class="navbar-nav">
-  				<li class="nav-item active"><a href="#" class="nav-link">トップ</a></li>
-  				<li class="dropdown">
+  				<li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
+  				<li class="dropdown active">
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザ</a>
   					<div class="dropdown-menu">
   						<a href="/CBT/jsp/admin/userRegister.jsp" class="dropdown-item">登録</a>
@@ -41,6 +41,14 @@
   				<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
   			</ul>
   		</nav>
+  		
+  		<h1 class="mt-4 mb-5">ユーザ登録完了</h1>
+  		<div class="card">
+  			<div class="card-body">
+  				<h5 class="card-title">ユーザの登録が完了しました</h5>
+  				<p class="card-text"></p>
+  			</div>
+  		</div>
   	</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
