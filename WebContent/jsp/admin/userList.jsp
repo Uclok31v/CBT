@@ -1,20 +1,10 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="beans.UserBean"%>
 <!DOCTYPE html>
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
-<% String user_id = (String)request.getAttribute("user_id"); %>
-<% String user_name = (String)request.getAttribute("user_name"); %>
-<% int administrator = (Integer)request.getAttribute("administrator"); %>
-<% int role_1 = (Integer)request.getAttribute("role_1"); %>
-<% int role_2 = (Integer)request.getAttribute("role_2"); %>
-<% int role_3 = (Integer)request.getAttribute("role_3"); %>
-<% int role_4 = (Integer)request.getAttribute("role_4"); %>
-<% int role_5 = (Integer)request.getAttribute("role_5"); %>
-<% int role_6 = (Integer)request.getAttribute("role_6"); %>
-<% int role_7 = (Integer)request.getAttribute("role_7"); %>
-<% int role_8 = (Integer)request.getAttribute("role_8"); %>
-<% int role_9 = (Integer)request.getAttribute("role_9"); %>
+<% ArrayList userList = (ArrayList)request.getAttribute("user-list"); %>
 
 <html lang="ja">
   <head>
@@ -32,8 +22,8 @@
   		<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
   			<a class="navbar-brand"><%=whoami.getUserName() %> さん</a>
   			<ul class="navbar-nav">
-  				<li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
-  				<li class="dropdown active">
+  				<li class="nav-item active"><a href="#" class="nav-link">トップ</a></li>
+  				<li class="dropdown">
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザ</a>
   					<div class="dropdown-menu">
   						<a href="/CBT/jsp/admin/userRegister.jsp" class="dropdown-item">登録</a>
@@ -54,31 +44,32 @@
   			</ul>
   		</nav>
   		
-  		<h1 class="mt-4 mb-5">ユーザ登録完了</h1>
-  		<div class="card bg-light">
-  			<div class="card-body">
-  				<h5 class="card-title">以下の内容で登録されました</h5>
-  			</div>
-  		</div>
-
-		<br>
-
+  		
+  		<h1 class="mt-4 mb-5">受験者一覧</h1>
   		<table class="table table-hover">
   			<thead class="thead-dark">
-  				<tr><th>ユーザID</th><th>名前</th><th>ユーザ区分</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
+  				<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th><th>受験回数</th><th>合否</th><th>正答率</th></tr>
   			</thead>
   			<tbody>
+  			<% for(int i=0; i<userList.size(); i++){ %>
+  			<% UserBean user = (UserBean)userList.get(i); %>
   				<tr>
-  					<td><%=user_id %></td>
-  					<td><%=user_name %></td>
-  					<% if(administrator == 0){ %><td>受験者</td><% } else { %><td>管理者</td><% } %>
-  					<% if(role_1 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_2 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_3 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_4 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_5 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_6 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<td><%=user.getUserId() %></td>
+  					<td><%=user.getUserName() %></td>
+  					<td><%=user.getPassword() %></td>
+  					<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole2() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole3() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole4() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole5() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<td><%=user.getTimes() %></td>
+  					<% if(user.getTimes() != 0){ %>
+  					<% if(user.getResult() == 0){ %><td>不合格</td><% } else { %><td>合格</td><% } %>
+  					<% } else { %><td>-</td><% } %>
+  					<td><%=user.getPercentage() %></td>
   				</tr>
+  			<% } %>
   			</tbody>
   		</table>
   		
