@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.apache.commons.lang3.RandomStringUtils;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -70,18 +68,11 @@ public class UserDao extends DriverAccessor{
 		
 	}
 
-	public void insertUser(String userId, String userName, int administrator, int role1, int role2, int role3,
-			int role4, int role5, int role6, int role7, int role8, int role9, String dateTime) {
+	public void insertUser(String userId, String userName, String password, int administrator, int role1, int role2, int role3,
+			int role4, int role5, int role6, int role7, int role8, int role9, int times, String dateTime) {
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		PreparedStatement statement = null;
-		
-		String password = "zaq12wsx";
-		if (administrator == 0) {
-			password = RandomStringUtils.randomAlphanumeric(8);
-		}
-		
-		int times = 0;
 		
 		try {
 			String sql = "insert into user(user_id, user_name, password, administrator, role_1, role_2, role_3, role_4, role_5, role_6, role_7, role_8, role_9, times, datetime) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -167,6 +158,57 @@ public class UserDao extends DriverAccessor{
 		} finally {
 			closeConnection(connection);
 		}
+	}
+
+	public UserBean selectUserByRegisterdUserId(String userId) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "select * from user where user_id = ?";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, userId);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			UserBean user = new UserBean();
+			
+			while(resultSet.next()){
+				user.setUserId(resultSet.getString("user_id"));
+				user.setUserName(resultSet.getString("user_name"));
+				user.setPassword(resultSet.getString("password"));
+				user.setAdministrator(resultSet.getInt("administrator"));
+				user.setRole1(resultSet.getInt("role_1"));
+				user.setRole2(resultSet.getInt("role_2"));
+				user.setRole3(resultSet.getInt("role_3"));
+				user.setRole4(resultSet.getInt("role_4"));
+				user.setRole5(resultSet.getInt("role_5"));
+				user.setRole6(resultSet.getInt("role_6"));
+				user.setRole7(resultSet.getInt("role_7"));
+				user.setRole8(resultSet.getInt("role_8"));
+				user.setRole9(resultSet.getInt("role_9"));
+				user.setTimes(resultSet.getInt("times"));
+				user.setResult(resultSet.getInt("result"));
+				user.setPercentage(resultSet.getFloat("percentage"));
+				user.setDateTime(resultSet.getString("datetime"));
+				
+			}
+			
+			resultSet.close();
+			
+			return user;
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		} finally {
+			closeConnection(connection);
+		}
+
 	}
 
 
