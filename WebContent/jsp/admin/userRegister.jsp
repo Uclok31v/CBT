@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="beans.UserBean"%>
 <!DOCTYPE html>
-<% UserBean user = (UserBean)session.getAttribute("user"); %>
+<% UserBean whoami = (UserBean)session.getAttribute("user"); %>
 <% String error = (String)request.getAttribute("error");
       if(error==null){
     	  error="";
@@ -23,7 +23,7 @@
   <body style="padding-top:5rem">
   	<div class="container">
   		<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
-  			<a class="navbar-brand"><%=user.getUserName() %> さん</a>
+  			<a class="navbar-brand"><%=whoami.getUserName() %> さん</a>
   			<ul class="navbar-nav">
   				<li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
   				<li class="dropdown active">
