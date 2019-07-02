@@ -126,7 +126,7 @@ public class UserRegisterServlet extends HttpServlet {
 			request.setAttribute("role_7", user.getRole7());
 			request.setAttribute("role_8", user.getRole8());
 			request.setAttribute("role_9", user.getRole9());
-			request.getRequestDispatcher("./userRegisterd.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/admin/userRegisterd.jsp").forward(request, response);
 		} else {
 			request.setAttribute("error", "既に登録されているユーザIDです");
 			request.getRequestDispatcher("/jsp/admin/userRegister.jsp").forward(request, response);
