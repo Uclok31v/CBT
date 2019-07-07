@@ -22,8 +22,8 @@
   		<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
   			<a class="navbar-brand"><%=whoami.getUserName() %> さん</a>
   			<ul class="navbar-nav">
-  				<li class="nav-item active"><a href="#" class="nav-link">トップ</a></li>
-  				<li class="dropdown">
+  				<li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
+  				<li class="dropdown active">
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザ</a>
   					<div class="dropdown-menu">
   						<a href="/CBT/jsp/admin/userRegister.jsp" class="dropdown-item">登録</a>
@@ -48,7 +48,7 @@
   		<h1 class="mt-4 mb-5">受験者一覧</h1>
   		<table class="table table-hover">
   			<thead class="thead-dark">
-  				<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th><th>受験回数</th><th>合否</th><th>正答率</th></tr>
+  				<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th><th>受験回数</th><th>合否</th><th>正答率</th><th></th><th></th></tr>
   			</thead>
   			<tbody>
   			<% for(int i=0; i<userList.size(); i++){ %>
@@ -68,6 +68,38 @@
   					<% if(user.getResult() == 0){ %><td>不合格</td><% } else { %><td>合格</td><% } %>
   					<% } else { %><td>-</td><% } %>
   					<td><%=user.getPercentage() %></td>
+  					<td>
+  						<form action="./userEdit" method="post">
+  							<input type="hidden" name="user_id" value="<%=user.getUserId() %>">
+  							<input type="hidden" name="user_name" value="<%=user.getUserName() %>">
+  							<input type="hidden" name="role_1" value=<%=user.getRole1() %>>
+  							<input type="hidden" name="role_2" value=<%=user.getRole2() %>>
+  							<input type="hidden" name="role_3" value=<%=user.getRole3() %>>
+  							<input type="hidden" name="role_4" value=<%=user.getRole4() %>>
+  							<input type="hidden" name="role_5" value=<%=user.getRole5() %>>
+  							<input type="hidden" name="role_6" value=<%=user.getRole6() %>>
+  							<input type="hidden" name="role_7" value=<%=user.getRole7() %>>
+  							<input type="hidden" name="role_8" value=<%=user.getRole8() %>>
+  							<input type="hidden" name="role_9" value=<%=user.getRole9() %>>
+  							<input type="submit" value="編集" class="btn btn-warning">
+  						</form>
+  					</td>
+  					<td>
+  						<form action="./userDeleteComfirm" method="post">
+  							<input type="hidden" name="user_id" value="<%=user.getUserId() %>">
+  							<input type="hidden" name="user_name" value="<%=user.getUserName() %>">
+  							<input type="hidden" name="role_1" value=<%=user.getRole1() %>>
+  							<input type="hidden" name="role_2" value=<%=user.getRole2() %>>
+  							<input type="hidden" name="role_3" value=<%=user.getRole3() %>>
+  							<input type="hidden" name="role_4" value=<%=user.getRole4() %>>
+  							<input type="hidden" name="role_5" value=<%=user.getRole5() %>>
+  							<input type="hidden" name="role_6" value=<%=user.getRole6() %>>
+  							<input type="hidden" name="role_7" value=<%=user.getRole7() %>>
+  							<input type="hidden" name="role_8" value=<%=user.getRole8() %>>
+  							<input type="hidden" name="role_9" value=<%=user.getRole9() %>>
+  							<input type="submit" value="削除" class="btn btn-danger">
+  						</form>
+  					</td>
   				</tr>
   			<% } %>
   			</tbody>

@@ -261,5 +261,38 @@ public class UserDao extends DriverAccessor{
 		}
 	}
 
+	public void updateUserById(String userId, String userName, int role1, int role2, int role3, int role4, int role5,
+			int role6, int role7, int role8, int role9, String dateTime) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			String sql = "update user set user_name = ?, role_1 = ?, role_2 = ?, role_3 = ?, role_4 = ?, role_5 = ?, role_6 = ?, role_7 = ?, role_8 = ?, role_9 = ?, datetime = ? where user_id = ?";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, userName);
+			statement.setInt(2, role1);
+			statement.setInt(3, role2);
+			statement.setInt(4, role3);
+			statement.setInt(5, role4);
+			statement.setInt(6, role5);
+			statement.setInt(7, role6);
+			statement.setInt(8, role7);
+			statement.setInt(9, role8);
+			statement.setInt(10, role9);
+			statement.setString(11, dateTime);
+			statement.setString(12, userId);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
 
 }
