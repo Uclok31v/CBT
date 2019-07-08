@@ -105,7 +105,6 @@ public class UserUpdateServlet extends HttpServlet {
 		UserBean user = new UserDao().selectUserByRegisterdUserId(userId);
 		request.setAttribute("user_id", user.getUserId());
 		request.setAttribute("user_name", user.getUserName());
-		request.setAttribute("administrator", user.getAdministrator());
 		request.setAttribute("role_1", user.getRole1());
 		request.setAttribute("role_2", user.getRole2());
 		request.setAttribute("role_3", user.getRole3());
