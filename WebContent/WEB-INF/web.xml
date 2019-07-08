@@ -9,7 +9,6 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/jsp/login</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>servlet.LogoutServlet</servlet-class>
@@ -18,7 +17,6 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/jsp/logout</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>UserRegisterServlet</servlet-name>
     <servlet-class>servlet.UserRegisterServlet</servlet-class>
@@ -27,7 +25,6 @@
     <servlet-name>UserRegisterServlet</servlet-name>
     <url-pattern>/jsp/admin/userRegister</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>UserListFetchServlet</servlet-name>
     <servlet-class>servlet.UserListFetchServlet</servlet-class>
@@ -36,7 +33,6 @@
     <servlet-name>UserListFetchServlet</servlet-name>
     <url-pattern>/jsp/admin/userListFetch</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>UserEditServlet</servlet-name>
     <servlet-class>servlet.UserEditServlet</servlet-class>
@@ -45,7 +41,6 @@
     <servlet-name>UserEditServlet</servlet-name>
     <url-pattern>/jsp/admin/userEdit</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>UserUpdateServlet</servlet-name>
     <servlet-class>servlet.UserUpdateServlet</servlet-class>
@@ -54,5 +49,20 @@
     <servlet-name>UserUpdateServlet</servlet-name>
     <url-pattern>/jsp/admin/userUpdate</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>UserDeleteComfirmServlet</servlet-name>
+    <servlet-class>servlet.UserDeleteComfirmServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDeleteComfirmServlet</servlet-name>
+    <url-pattern>/jsp/admin/userDeleteComfirm</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserDeleteServlet</servlet-name>
+    <servlet-class>servlet.UserDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDeleteServlet</servlet-name>
+    <url-pattern>/jsp/admin/userDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

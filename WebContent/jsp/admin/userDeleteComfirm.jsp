@@ -53,48 +53,32 @@
   			</ul>
   		</nav>
   		
-  		<h1 class="mt-4 mb-5">受験者編集</h1>
-  		<form action="./userUpdate" method="post">
-  			<div class="form-group mb-4">
-  				<label for="user_id">ユーザID</label>
-  				<p><b><%=user_id %></b></p>
-  				<input type="hidden" name="user_id" value="<%=user_id %>">
-  			</div>
-  			<div class="form-group mb-4">
-  				<label for="user_name">名前</label>
-  				<input type="text" class="form-control" id="user_name" name="user_name" required value="<%=user_name %>">
-  			</div>
-  			<div class="form-group mb-4">ロール<br>
-  				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_1" id="role_1" value="1" <% if(role_1 == 1){ %>checked<% } %>>
-  					<label class="form-check-label" for="role_1">Backend</label>
-  				</div>
-  				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_2" id="role_2" value="1" <% if(role_2 == 1){ %>checked<% } %>>
-  					<label class="form-check-label" for="role_2">Frontend</label>
-  				</div>
-  				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_3" id="role_3" value="1" <% if(role_3 == 1){ %>checked<% } %>>
-  					<label class="form-check-label" for="role_3">Android</label>
-  				</div>
-  				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_4" id="role_4" value="1" <% if(role_4 == 1){ %>checked<% } %>>
-  					<label class="form-check-label" for="role_4">iOS</label>
-  				</div>
-  				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_5" id="role_5" value="1" <% if(role_5 == 1){ %>checked<% } %>>
-  					<label class="form-check-label" for="role_5">Architect</label>
-  				</div>
-  				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_6" id="role_6" value="1" <% if(role_6 == 1){ %>checked<% } %>>
-  					<label class="form-check-label" for="role_6">PM</label>
-  				</div>
-  			</div>
+  		<h1 class="mt-4 mb-5">受験者削除</h1>
+  		
+  		<table class="table table-hover">
+  			<thead class="thead-dark">
+  				<tr><th>ユーザID</th><th>名前</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
+  			</thead>
+  			<tbody>
+  				<tr>
+  					<td><%=user_id %></td>
+  					<td><%=user_name %></td>
+  					<% if(role_1 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role_2 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role_3 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role_4 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role_5 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role_6 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  				</tr>
+  			</tbody>
+  		</table>
+  		
+  		<form action="./userDelete" method="post">
+  			<input type="hidden" name="user_id" value="<%=user_id %>">
   			<div>
-  				<input type="submit" value="更新" class="btn btn-warning">&nbsp;
+  				<input type="submit" value="削除" class="btn btn-danger">&nbsp;
   				<a href="/CBT/jsp/admin/userListFetch" class="btn btn-light">キャンセル</a>
   			</div>
-  		
   		</form>
   		
   	</div>

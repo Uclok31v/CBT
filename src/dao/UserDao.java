@@ -266,6 +266,7 @@ public class UserDao extends DriverAccessor{
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		PreparedStatement statement = null;
+		
 		try {
 			String sql = "update user set user_name = ?, role_1 = ?, role_2 = ?, role_3 = ?, role_4 = ?, role_5 = ?, role_6 = ?, role_7 = ?, role_8 = ?, role_9 = ?, datetime = ? where user_id = ?";
 			connection = createConnection();
@@ -283,6 +284,28 @@ public class UserDao extends DriverAccessor{
 			statement.setInt(10, role9);
 			statement.setString(11, dateTime);
 			statement.setString(12, userId);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
+	public void deleteUserById(String userId) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "delete from user where user_id = ?";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, userId);
 			
 			statement.executeUpdate();
 			
