@@ -57,8 +57,7 @@
   		<form action="./userUpdate" method="post">
   			<div class="form-group mb-4">
   				<label for="user_id">ユーザID</label>
-  				<p><b><%=user_id %></b></p>
-  				<input type="hidden" name="user_id" value="<%=user_id %>">
+  				<input type="text" class="form-control" id="user_id" name="user_id" value="<%=user_id %>" readonly>
   			</div>
   			<div class="form-group mb-4">
   				<label for="user_name">名前</label>
