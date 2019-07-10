@@ -113,7 +113,7 @@ public class UserRegisterServlet extends HttpServlet {
 		if (checkUser) {
 			new UserDao().insertUser(userId,userName,password,administrator,role1,role2,role3,role4,role5,role6,role7,role8,role9,times,dateTime);
 			
-			UserBean user = new UserDao().selectUserByRegisterdUserId(userId);
+			UserBean user = new UserDao().selectUserByRegisteredUserId(userId);
 			request.setAttribute("user_id", user.getUserId());
 			request.setAttribute("user_name", user.getUserName());
 			request.setAttribute("administrator", user.getAdministrator());
@@ -126,7 +126,7 @@ public class UserRegisterServlet extends HttpServlet {
 			request.setAttribute("role_7", user.getRole7());
 			request.setAttribute("role_8", user.getRole8());
 			request.setAttribute("role_9", user.getRole9());
-			request.getRequestDispatcher("/jsp/admin/userRegisterd.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/admin/userRegistered.jsp").forward(request, response);
 		} else {
 			request.setAttribute("error", "既に登録されているユーザIDです");
 			request.getRequestDispatcher("/jsp/admin/userRegister.jsp").forward(request, response);
