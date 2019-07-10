@@ -102,7 +102,7 @@ public class UserUpdateServlet extends HttpServlet {
 		String dateTime = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 		
 		new UserDao().updateUserById(userId,userName,role1,role2,role3,role4,role5,role6,role7,role8,role9,dateTime);
-		UserBean user = new UserDao().selectUserByRegisterdUserId(userId);
+		UserBean user = new UserDao().selectUserByRegisteredUserId(userId);
 		request.setAttribute("user_id", user.getUserId());
 		request.setAttribute("user_name", user.getUserName());
 		request.setAttribute("role_1", user.getRole1());
