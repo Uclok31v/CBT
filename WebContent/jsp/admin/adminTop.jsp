@@ -31,7 +31,7 @@
    				<li class="dropdown">
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">問題</a>
   					<div class="dropdown-menu">
-  						<a href="#" class="dropdown-item">登録</a>
+  						<a href="/CBT/jsp/admin/goToQuestionRegister" class="dropdown-item">登録</a>
   						<a href="#" class="dropdown-item">一覧</a>
   					</div>
   				</li> 			

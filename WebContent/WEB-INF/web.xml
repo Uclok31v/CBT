@@ -65,4 +65,20 @@
     <servlet-name>UserDeleteServlet</servlet-name>
     <url-pattern>/jsp/admin/userDelete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AdministratorFetchServlet</servlet-name>
+    <servlet-class>servlet.AdministratorFetchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministratorFetchServlet</servlet-name>
+    <url-pattern>/jsp/admin/goToQuestionRegister</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>QuestionRegisterServlet</servlet-name>
+    <servlet-class>servlet.QuestionRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionRegisterServlet</servlet-name>
+    <url-pattern>/jsp/admin/questionRegister</url-pattern>
+  </servlet-mapping>
 </web-app>
