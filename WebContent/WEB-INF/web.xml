@@ -81,4 +81,12 @@
     <servlet-name>QuestionRegisterServlet</servlet-name>
     <url-pattern>/jsp/admin/questionRegister</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>QuestionListFetchServlet</servlet-name>
+    <servlet-class>servlet.QuestionListFetchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionListFetchServlet</servlet-name>
+    <url-pattern>/jsp/admin/questionListFetch</url-pattern>
+  </servlet-mapping>
 </web-app>
