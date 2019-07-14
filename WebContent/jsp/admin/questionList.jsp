@@ -49,7 +49,7 @@
   		
   		<table  class="table table-hover">
 			<thead class="thead-dark">
-				<tr><th>設問ID</th><th>問題文</th><th>選択肢１</th><th>選択肢２</th><th>選択肢３</th><th>選択肢４</th><th>正解</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th><th>パターン</th><th>管理</th></tr>
+				<tr><th>設問ID</th><th>問題文</th><th>選択肢１</th><th>選択肢２</th><th>選択肢３</th><th>選択肢４</th><th>正解</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th><th>パターン</th><th>管理</th><th></th><th></th></tr>
 			</thead>
 			<tbody>
 			<% for(int i=0; i<questionList.size(); i++){ %>
@@ -70,6 +70,30 @@
   					<% if(question.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
   					<% if(question.getPattern() == 1){ %><td>A</td><% } else if(question.getPattern() == 2){ %><td>B</td><% } else { %><td>共通</td><% } %>
   					<td><%=question.getOwner() %></td>
+  					<td>
+  						<form action="./questionEdit" method="post">
+  							<input type="hidden" name="question_id" value="<%=question.getQuestionId() %>">
+  							<input type="hidden" name="text" value="<%=question.getText() %>">
+  							<input type="hidden" name="choice_1" value="<%=question.getChoice1() %>">
+  							<input type="hidden" name="choice_2" value="<%=question.getChoice2() %>">
+  							<input type="hidden" name="choice_3" value="<%=question.getChoice3() %>">
+  							<input type="hidden" name="choice_4" value="<%=question.getChoice4() %>">
+  							<input type="hidden" name="correct" value="<%=question.getCorrect() %>">
+  							<input type="hidden" name="role_1" value="<%=question.getRole1() %>">
+  							<input type="hidden" name="role_2" value="<%=question.getRole2() %>">
+  							<input type="hidden" name="role_3" value="<%=question.getRole3() %>">
+  							<input type="hidden" name="role_4" value="<%=question.getRole4() %>">
+  							<input type="hidden" name="role_5" value="<%=question.getRole5() %>">
+  							<input type="hidden" name="role_6" value="<%=question.getRole6() %>">
+  							<input type="hidden" name="role_7" value="<%=question.getRole7() %>">
+  							<input type="hidden" name="role_8" value="<%=question.getRole8() %>">
+  							<input type="hidden" name="role_9" value="<%=question.getRole9() %>">
+  							<input type="hidden" name="pattern" value="<%=question.getPattern() %>">
+  							<input type="hidden" name="owner" value="<%=question.getOwner() %>">
+  							<input type="submit" value="編集" class="btn btn-warning">
+  						</form>
+  					</td>
+  					<td></td>
 				</tr>
 			<% } %>
 			</tbody>

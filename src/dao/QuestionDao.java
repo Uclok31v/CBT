@@ -212,4 +212,45 @@ public class QuestionDao extends DriverAccessor{
 		}
 	}
 
+	public void updateQuestionById(String questionId, String text, String choice1, String choice2, String choice3,
+			String choice4, int correct, int role1, int role2, int role3, int role4, int role5, int role6, int role7,
+			int role8, int role9, int pattern, String owner) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "update question set text = ?, choice_1 = ?, choice_2 = ?, choice_3 = ?, choice_4 = ?, correct = ?, role_1 = ?, role_2 = ?, role_3 = ?, role_4 = ?, role_5 = ?, role_6 = ?, role_7 = ?, role_8 = ?, role_9 = ?, pattern = ?, owner = ? where question_id = ?";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, text);
+			statement.setString(2, choice1);
+			statement.setString(3, choice2);
+			statement.setString(4, choice3);
+			statement.setString(5, choice4);
+			statement.setInt(6, correct);
+			statement.setInt(7, role1);
+			statement.setInt(8, role2);
+			statement.setInt(9, role3);
+			statement.setInt(10, role4);
+			statement.setInt(11, role5);
+			statement.setInt(12, role6);
+			statement.setInt(13, role7);
+			statement.setInt(14, role8);
+			statement.setInt(15, role9);
+			statement.setInt(16, pattern);
+			statement.setString(17, owner);
+			statement.setString(18, questionId);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
 }
