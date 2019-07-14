@@ -89,4 +89,20 @@
     <servlet-name>QuestionListFetchServlet</servlet-name>
     <url-pattern>/jsp/admin/questionListFetch</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>QuestionEditServlet</servlet-name>
+    <servlet-class>servlet.QuestionEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionEditServlet</servlet-name>
+    <url-pattern>/jsp/admin/questionEdit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>QuestionUpdateServlet</servlet-name>
+    <servlet-class>servlet.QuestionUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionUpdateServlet</servlet-name>
+    <url-pattern>/jsp/admin/questionUpdate</url-pattern>
+  </servlet-mapping>
 </web-app>
