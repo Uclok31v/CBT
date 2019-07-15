@@ -253,4 +253,25 @@ public class QuestionDao extends DriverAccessor{
 		}
 	}
 
+	public void deleteQuestionById(String questionId) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "delete from question where question_id = ?";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, questionId);
+			
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
 }
