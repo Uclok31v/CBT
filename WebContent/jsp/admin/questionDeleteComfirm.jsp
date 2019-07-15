@@ -60,7 +60,7 @@
   			</ul>
   		</nav>
   		
-  		<h1 class="mt-4 mb-5">問題登録完了</h1>
+  		<h1 class="mt-4 mb-5">問題削除</h1>
   				
 		<table  class="table table-hover">
 			<thead class="thead-dark">
