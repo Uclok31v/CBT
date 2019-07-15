@@ -3,6 +3,11 @@
 <%@page import="beans.UserBean"%>
 <!DOCTYPE html>
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
+<% String error = (String)request.getAttribute("error");
+      if(error==null){
+    	  error="";
+      }
+%>
 
 <html lang="ja">
   <head>
@@ -20,7 +25,7 @@
   		<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
   			<a class="navbar-brand"><%=whoami.getUserName() %> さん</a>
   			<ul class="navbar-nav">
-  				<li class="nav-item active"><a href="#" class="nav-link">トップ</a></li>
+  				<li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
   				<li class="dropdown">
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザ</a>
   					<div class="dropdown-menu">
@@ -37,10 +42,37 @@
   				</li> 			
   			</ul>
   			<ul class="navbar-nav ml-auto">
-  				<li class="nav-item"><a href="/CBT/jsp/admin/passwordChange.jsp" class="nav-link">パスワード変更</a></li> 		
+  				<li class="nav-item active"><a href="/CBT/jsp/admin/passwordChange.jsp" class="nav-link">パスワード変更</a></li> 		
   				<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
   			</ul>
   		</nav>
+  		
+  		<h1 class="mt-4 mb-5">管理者パスワード変更</h1>
+  		<form action="./passwordChange" method="post">
+  			<div class="form-group mb-4">
+  				<label for="currentPassword">現在のパスワード</label>
+  				<input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+  			</div>
+  			<div class="form-group mb-4">
+  				<label for="newPassword">新しいパスワード</label>
+  				<input type="password" class="form-control" id="newPassword" name="newPassword" required>
+  			</div>
+  			<div class="form-group mb-4">
+  				<label for="rePassword">新しいパスワード（確認）</label>
+  				<input type="password" class="form-control" id="rePassword" name="rePassword" required>
+  			</div>
+  			<div>
+  				<input type="submit" value="変更" class="btn btn-warning">&nbsp;
+  				<a href="/CBT/jsp/admin/passwordChange.jsp" class="btn btn-light">キャンセル</a>
+  			</div>
+  			<div class="text-left">
+  				<font color="red">
+  					<%= error %>
+  				</font>
+  			</div>
+  		
+  		</form>
+  		
   	</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

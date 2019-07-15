@@ -105,4 +105,12 @@
     <servlet-name>QuestionUpdateServlet</servlet-name>
     <url-pattern>/jsp/admin/questionUpdate</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>PasswordChangeServlet</servlet-name>
+    <servlet-class>servlet.PasswordChangeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PasswordChangeServlet</servlet-name>
+    <url-pattern>/jsp/admin/passwordChange</url-pattern>
+  </servlet-mapping>
 </web-app>
