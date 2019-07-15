@@ -93,7 +93,29 @@
   							<input type="submit" value="編集" class="btn btn-warning">
   						</form>
   					</td>
-  					<td></td>
+  					<td>
+  						<form action="./questionDeleteComfirm" method="post">
+  							<input type="hidden" name="question_id" value="<%=question.getQuestionId() %>">
+  							<input type="hidden" name="text" value="<%=question.getText() %>">
+  							<input type="hidden" name="choice_1" value="<%=question.getChoice1() %>">
+  							<input type="hidden" name="choice_2" value="<%=question.getChoice2() %>">
+  							<input type="hidden" name="choice_3" value="<%=question.getChoice3() %>">
+  							<input type="hidden" name="choice_4" value="<%=question.getChoice4() %>">
+  							<input type="hidden" name="correct" value="<%=question.getCorrect() %>">
+  							<input type="hidden" name="role_1" value="<%=question.getRole1() %>">
+  							<input type="hidden" name="role_2" value="<%=question.getRole2() %>">
+  							<input type="hidden" name="role_3" value="<%=question.getRole3() %>">
+  							<input type="hidden" name="role_4" value="<%=question.getRole4() %>">
+  							<input type="hidden" name="role_5" value="<%=question.getRole5() %>">
+  							<input type="hidden" name="role_6" value="<%=question.getRole6() %>">
+  							<input type="hidden" name="role_7" value="<%=question.getRole7() %>">
+  							<input type="hidden" name="role_8" value="<%=question.getRole8() %>">
+  							<input type="hidden" name="role_9" value="<%=question.getRole9() %>">
+  							<input type="hidden" name="pattern" value="<%=question.getPattern() %>">
+  							<input type="hidden" name="owner" value="<%=question.getOwner() %>">
+  							<input type="submit" value="削除" class="btn btn-danger">
+  						</form>
+  					</td>
 				</tr>
 			<% } %>
 			</tbody>
