@@ -49,7 +49,12 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 			
-			request.getRequestDispatcher("/jsp/admin/adminTop.jsp").forward(request, response);
+			if (user.getAdministrator() == 1) {
+				request.getRequestDispatcher("/jsp/admin/adminTop.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("/jsp/examinee/examineeTop.jsp").forward(request, response);
+			}
+			
 		} else {
 			request.setAttribute("error", "ユーザIDまたはパスワードが正しくありません");
 			request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
