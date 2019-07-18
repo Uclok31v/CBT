@@ -274,4 +274,149 @@ public class QuestionDao extends DriverAccessor{
 		}
 	}
 
+	public ArrayList<QuestionBean> selectQuestionByRole(int role1, int role2, int role3, int role4, int role5,
+			int role6, int role7, int role8, int role9, int times) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		int n;
+		if (times % 2 == 0) {
+			n = 2;
+		} else {
+			n = 1;
+		}
+		
+		try {
+			String sql = "select * from question where pattern != " + n;
+			int i = 0;
+			if (role1 == 1) {
+				String condition = " and role_1 = 1";
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role2 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_2 = 1";
+				} else {
+					condition = " or role_2 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role3 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_3 = 1";
+				} else {
+					condition = " or role_3 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role4 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_4 = 1";
+				} else {
+					condition = " or role_4 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role5 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_5 = 1";
+				} else {
+					condition = " or role_5 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role6 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_6 = 1";
+				} else {
+					condition = " or role_6 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role7 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_7 = 1";
+				} else {
+					condition = " or role_7 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role8 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_8 = 1";
+				} else {
+					condition = " or role_8 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			if (role9 == 1) {
+				String condition;
+				if (i == 0) {
+					condition = " and role_9 = 1";
+				} else {
+					condition = " or role_9 = 1";
+				}
+				sql = sql + condition;
+				i = i + 1;
+			}
+			
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			ArrayList<QuestionBean> questionList = new ArrayList<QuestionBean>();
+			while (resultSet.next()) {
+				QuestionBean question = new QuestionBean();
+				question.setQuestionId(resultSet.getString("question_id"));
+				question.setText(resultSet.getString("text"));
+				question.setChoice1(resultSet.getString("choice_1"));
+				question.setChoice2(resultSet.getString("choice_2"));
+				question.setChoice3(resultSet.getString("choice_3"));
+				question.setChoice4(resultSet.getString("choice_4"));
+				question.setCorrect(resultSet.getInt("correct"));
+				question.setRole1(resultSet.getInt("role_1"));
+				question.setRole2(resultSet.getInt("role_2"));
+				question.setRole3(resultSet.getInt("role_3"));
+				question.setRole4(resultSet.getInt("role_4"));
+				question.setRole5(resultSet.getInt("role_5"));
+				question.setRole6(resultSet.getInt("role_6"));
+				question.setRole7(resultSet.getInt("role_7"));
+				question.setRole8(resultSet.getInt("role_8"));
+				question.setRole9(resultSet.getInt("role_9"));
+				question.setPattern(resultSet.getInt("pattern"));
+				question.setOwner(resultSet.getString("owner"));
+				
+				questionList.add(question);
+			}
+			
+			statement.close();
+			resultSet.close();
+			
+			return questionList;
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
 }
