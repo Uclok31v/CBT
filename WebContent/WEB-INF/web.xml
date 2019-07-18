@@ -129,4 +129,12 @@
     <servlet-name>PasswordChangeServlet</servlet-name>
     <url-pattern>/jsp/admin/passwordChange</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ExamServlet</servlet-name>
+    <servlet-class>servlet.ExamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExamServlet</servlet-name>
+    <url-pattern>/jsp/examinee/exam</url-pattern>
+  </servlet-mapping>
 </web-app>
