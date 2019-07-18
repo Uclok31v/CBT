@@ -105,7 +105,7 @@
     <servlet-name>QuestionUpdateServlet</servlet-name>
     <url-pattern>/jsp/admin/questionUpdate</url-pattern>
   </servlet-mapping>
-  <servlet>
+  <servlet>    
     <servlet-name>QuestionDeleteComfirmServlet</servlet-name>
     <servlet-class>servlet.QuestionDeleteComfirmServlet</servlet-class>
   </servlet>
@@ -128,13 +128,5 @@
   <servlet-mapping>
     <servlet-name>PasswordChangeServlet</servlet-name>
     <url-pattern>/jsp/admin/passwordChange</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ExamServlet</servlet-name>
-    <servlet-class>servlet.ExamServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ExamServlet</servlet-name>
-    <url-pattern>/jsp/examinee/exam</url-pattern>
   </servlet-mapping>
 </web-app>
