@@ -442,5 +442,30 @@ public class UserDao extends DriverAccessor{
 		
 	}
 
+	public void updateUser(String userId, String password, int result, float percentage) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "update user set password = ?, times = times + 1, result = ?, percentage = ? where user_id = ?";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, password);
+			statement.setInt(2, result);
+			statement.setFloat(3, percentage);
+			statement.setString(4, userId);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
 
 }

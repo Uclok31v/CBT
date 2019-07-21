@@ -136,5 +136,13 @@
   <servlet-mapping>
     <servlet-name>ExamServlet</servlet-name>
     <url-pattern>/jsp/examinee/exam</url-pattern>
+  </servlet-mapping> 
+  <servlet>
+    <servlet-name>ScoreServlet</servlet-name>
+    <servlet-class>servlet.ScoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ScoreServlet</servlet-name>
+    <url-pattern>/jsp/examinee/score</url-pattern>
   </servlet-mapping>
 </web-app>
