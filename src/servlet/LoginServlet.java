@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +52,10 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			
 			if (user.getAdministrator() == 1) {
+				ArrayList<UserBean> beginnerList = new UserDao().selectUserByTimes();
+				ArrayList<UserBean> failureList = new UserDao().selectUserByResult();
+				request.setAttribute("beginner-list", beginnerList);
+				request.setAttribute("failure-list", failureList);
 				request.getRequestDispatcher("/jsp/admin/adminTop.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("/jsp/examinee/examineeTop.jsp").forward(request, response);
