@@ -1,8 +1,11 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="beans.UserBean"%>
 <!DOCTYPE html>
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
+<% ArrayList beginnerList = (ArrayList)request.getAttribute("beginner-list"); %>
+<% ArrayList failureList = (ArrayList)request.getAttribute("failure-list"); %>
 
 <html lang="ja">
   <head>
@@ -41,6 +44,54 @@
   				<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
   			</ul>
   		</nav>
+  		
+  		<h1 class="mt-4 mb-5">今後の受験予定者</h1>
+  		<table class="table table-hover">
+  			<thead class="thead-dark">
+  				<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
+  			</thead>
+  			<tbody>
+  			<% for(int i=0; i<beginnerList.size(); i++){ %>
+  			<% UserBean user = (UserBean)beginnerList.get(i); %>
+  				<tr>
+  					<td><%=user.getUserId() %></td>
+  					<td><%=user.getUserName() %></td>
+  					<td><%=user.getPassword() %></td>
+  					<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole2() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole3() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole4() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole5() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  				</tr>
+  			<% } %>
+  			</tbody>
+  		</table>
+  		
+  		<br>
+  		
+  		<table class="table table-hover">
+  			<thead class="thead-dark">
+  				<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
+  			</thead>
+  			<tbody>
+  			<% for(int i=0; i<failureList.size(); i++){ %>
+  			<% UserBean user = (UserBean)failureList.get(i); %>
+  				<tr>
+  					<td><%=user.getUserId() %></td>
+  					<td><%=user.getUserName() %></td>
+  					<td><%=user.getPassword() %></td>
+  					<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole2() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole3() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole4() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole5() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  				</tr>
+  			<% } %>
+  			</tbody>
+  		</table>
+  		
   	</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
