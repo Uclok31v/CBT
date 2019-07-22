@@ -23,7 +23,7 @@
   		<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
   			<a class="navbar-brand"><%=whoami.getUserName() %> さん</a>
   			<ul class="navbar-nav">
-  				<li class="nav-item active"><a href="#" class="nav-link">トップ</a></li>
+  				<li class="nav-item active"><a href="/CBT/jsp/admin/goToAdminTop" class="nav-link">トップ</a></li>
   				<li class="dropdown">
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザ</a>
   					<div class="dropdown-menu">
@@ -46,51 +46,70 @@
   		</nav>
   		
   		<h1 class="mt-4 mb-5">今後の受験予定者</h1>
-  		<table class="table table-hover">
-  			<thead class="thead-dark">
-  				<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
-  			</thead>
-  			<tbody>
-  			<% for(int i=0; i<beginnerList.size(); i++){ %>
-  			<% UserBean user = (UserBean)beginnerList.get(i); %>
-  				<tr>
-  					<td><%=user.getUserId() %></td>
-  					<td><%=user.getUserName() %></td>
-  					<td><%=user.getPassword() %></td>
-  					<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole2() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole3() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole4() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole5() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  				</tr>
-  			<% } %>
-  			</tbody>
-  		</table>
+  		
+  		<div class="card border border-primary">
+  			<h4 class="card-header bg-light text-primary">未受験者</h4>
+  			<div class="card-body">
+  		
+  				<table class="table table-hover">
+  					<thead>
+  						<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
+  					</thead>
+  					<tbody>
+  					<% for(int i=0; i<beginnerList.size(); i++){ %>
+  					<% UserBean user = (UserBean)beginnerList.get(i); %>
+  						<tr>
+  							<td><%=user.getUserId() %></td>
+  							<td><%=user.getUserName() %></td>
+  							<td><%=user.getPassword() %></td>
+  							<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole2() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole3() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole4() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole5() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  						</tr>
+  					<% } %>
+  					</tbody>
+  				</table>
+  		
+  			</div>
+  		</div>
+  		
   		
   		<br>
   		
-  		<table class="table table-hover">
-  			<thead class="thead-dark">
-  				<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
-  			</thead>
-  			<tbody>
-  			<% for(int i=0; i<failureList.size(); i++){ %>
-  			<% UserBean user = (UserBean)failureList.get(i); %>
-  				<tr>
-  					<td><%=user.getUserId() %></td>
-  					<td><%=user.getUserName() %></td>
-  					<td><%=user.getPassword() %></td>
-  					<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole2() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole3() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole4() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole5() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  				</tr>
-  			<% } %>
-  			</tbody>
-  		</table>
+  		<div class="card border border-danger">
+  			<h4 class="card-header bg-light text-danger">不合格者</h4>
+  			<div class="card-body">
+  		
+  				<table class="table table-hover">
+  					<thead>
+  						<tr><th>ユーザID</th><th>名前</th><th>パスワード</th><th>Backend</th><th>Frontend</th><th>Android</th><th>iOS</th><th>Architect</th><th>PM</th></tr>
+  					</thead>
+  					<tbody>
+  					<% for(int i=0; i<failureList.size(); i++){ %>
+  					<% UserBean user = (UserBean)failureList.get(i); %>
+  						<tr>
+  							<td><%=user.getUserId() %></td>
+  							<td><%=user.getUserName() %></td>
+  							<td><%=user.getPassword() %></td>
+  							<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole2() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole3() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole4() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole5() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  							<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  						</tr>
+  					<% } %>
+  					</tbody>
+  				</table>
+  		
+  			</div>
+  		</div>
+  		
+  		<br>
+  		<br>
   		
   	</div>
     <!-- Optional JavaScript -->
