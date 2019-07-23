@@ -6,12 +6,9 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.RandomStringUtils;
 
 import beans.UserBean;
 import dao.UserDao;

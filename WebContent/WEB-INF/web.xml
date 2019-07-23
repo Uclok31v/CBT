@@ -161,7 +161,6 @@
     <servlet-name>UserSearchServlet</servlet-name>
     <url-pattern>/jsp/admin/userSearch</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>QuestionSearchServlet</servlet-name>
     <servlet-class>servlet.QuestionSearchServlet</servlet-class>
