@@ -468,4 +468,55 @@ public class QuestionDao extends DriverAccessor{
 		}
 	}
 
+	public ArrayList<QuestionBean> selectQuestionByText(String keyword) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "select * from question where text like '%" + keyword + "%'";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			ArrayList<QuestionBean> questionList = new ArrayList<QuestionBean>();
+			while (resultSet.next()) {
+				QuestionBean question = new QuestionBean();
+				question.setQuestionId(resultSet.getString("question_id"));
+				question.setText(resultSet.getString("text"));
+				question.setChoice1(resultSet.getString("choice_1"));
+				question.setChoice2(resultSet.getString("choice_2"));
+				question.setChoice3(resultSet.getString("choice_3"));
+				question.setChoice4(resultSet.getString("choice_4"));
+				question.setCorrect(resultSet.getInt("correct"));
+				question.setRole1(resultSet.getInt("role_1"));
+				question.setRole2(resultSet.getInt("role_2"));
+				question.setRole3(resultSet.getInt("role_3"));
+				question.setRole4(resultSet.getInt("role_4"));
+				question.setRole5(resultSet.getInt("role_5"));
+				question.setRole6(resultSet.getInt("role_6"));
+				question.setRole7(resultSet.getInt("role_7"));
+				question.setRole8(resultSet.getInt("role_8"));
+				question.setRole9(resultSet.getInt("role_9"));
+				question.setPattern(resultSet.getInt("pattern"));
+				question.setOwner(resultSet.getString("owner"));
+				
+				questionList.add(question);
+			}
+			
+			statement.close();
+			resultSet.close();
+			
+			return questionList;
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
 }

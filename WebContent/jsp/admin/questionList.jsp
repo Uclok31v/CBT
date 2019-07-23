@@ -39,7 +39,11 @@
   					</div>
   				</li> 			
   			</ul>
-  			<ul class="navbar-nav ml-auto">
+  			<form class="form-inline ml-auto" action="./questionSearch" method="post">
+  				<input type="search" class="form-control mr-sm-2" placeholder="問題文で部分一致検索" name="keyword" required>
+  				<button type="submit" class="btn btn-info my-2 my-sm-0">検索</button>
+  			</form>
+  			<ul class="navbar-nav">
   				<li class="nav-item"><a href="/CBT/jsp/admin/passwordChange.jsp" class="nav-link">パスワード変更</a></li> 		
   				<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
   			</ul>

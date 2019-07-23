@@ -153,7 +153,6 @@
     <servlet-name>AdminTopTransitionServlet</servlet-name>
     <url-pattern>/jsp/admin/goToAdminTop</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>UserSearchServlet</servlet-name>
     <servlet-class>servlet.UserSearchServlet</servlet-class>
@@ -161,5 +160,14 @@
   <servlet-mapping>
     <servlet-name>UserSearchServlet</servlet-name>
     <url-pattern>/jsp/admin/userSearch</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>QuestionSearchServlet</servlet-name>
+    <servlet-class>servlet.QuestionSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionSearchServlet</servlet-name>
+    <url-pattern>/jsp/admin/questionSearch</url-pattern>
   </servlet-mapping>
 </web-app>
