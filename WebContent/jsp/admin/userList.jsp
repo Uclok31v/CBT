@@ -38,7 +38,11 @@
   					</div>
   				</li> 			
   			</ul>
-  			<ul class="navbar-nav ml-auto">
+  			<form class="form-inline ml-auto" action="./userSearch" method="post">
+  				<input type="search" class="form-control mr-sm-2" placeholder="ユーザIDで部分一致検索" name="keyword" required>
+  				<button type="submit" class="btn btn-info my-2 my-sm-0">検索</button>
+  			</form>
+  			<ul class="navbar-nav">
   				<li class="nav-item"><a href="/CBT/jsp/admin/passwordChange.jsp" class="nav-link">パスワード変更</a></li> 		
   				<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
   			</ul>
@@ -65,7 +69,7 @@
   					<% if(user.getRole6() == 0){ %><td></td><% } else { %><td>○</td><% } %>
   					<td><%=user.getTimes() %></td>
   					<% if(user.getTimes() != 0){ %>
-  					<% if(user.getResult() == 0){ %><td>不合格</td><% } else { %><td>合格</td><% } %>
+  					<% if(user.getResult() == 0){ %><td><font color="blue">不合格</font></td><% } else { %><td><font color="red">合格</font></td><% } %>
   					<% } else { %><td>-</td><% } %>
   					<td><%=user.getPercentage() %></td>
   					<td>

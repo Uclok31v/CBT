@@ -567,5 +567,55 @@ public class UserDao extends DriverAccessor{
 		}
 	}
 
+	public ArrayList<UserBean> selectUserById(String keyword) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "select * from user where administrator = 0 and user_id like '%" + keyword + "%' order by datetime desc";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			ArrayList<UserBean> userList = new ArrayList<UserBean>();
+			while(resultSet.next()){
+				UserBean user = new UserBean();
+				user.setUserId(resultSet.getString("user_id"));
+				user.setUserName(resultSet.getString("user_name"));
+				user.setPassword(resultSet.getString("password"));
+				user.setAdministrator(resultSet.getInt("administrator"));
+				user.setRole1(resultSet.getInt("role_1"));
+				user.setRole2(resultSet.getInt("role_2"));
+				user.setRole3(resultSet.getInt("role_3"));
+				user.setRole4(resultSet.getInt("role_4"));
+				user.setRole5(resultSet.getInt("role_5"));
+				user.setRole6(resultSet.getInt("role_6"));
+				user.setRole7(resultSet.getInt("role_7"));
+				user.setRole8(resultSet.getInt("role_8"));
+				user.setRole9(resultSet.getInt("role_9"));
+				user.setTimes(resultSet.getInt("times"));
+				user.setResult(resultSet.getInt("result"));
+				user.setPercentage(resultSet.getFloat("percentage"));
+				user.setDateTime(resultSet.getString("datetime"));
+				
+				userList.add(user);
+			}
+			
+			statement.close();
+			resultSet.close();
+			
+			return userList;
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		} finally {
+			closeConnection(connection);
+		}
+	}
+
 
 }
