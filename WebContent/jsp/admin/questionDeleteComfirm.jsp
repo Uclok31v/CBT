@@ -38,7 +38,7 @@
   		<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
   			<a class="navbar-brand"><%=whoami.getUserName() %> さん</a>
   			<ul class="navbar-nav">
-  				<li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
+  				<li class="nav-item"><a href="/CBT/jsp/admin/goToAdminTop" class="nav-link">トップ</a></li>
   				<li class="dropdown">
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザ</a>
   					<div class="dropdown-menu">
@@ -50,12 +50,12 @@
   					<a class="nav-link dropdown-toggle" data-toggle="dropdown">問題</a>
   					<div class="dropdown-menu">
   						<a href="/CBT/jsp/admin/goToQuestionRegister" class="dropdown-item">登録</a>
-  						<a href="#" class="dropdown-item">一覧</a>
+  						<a href="/CBT/jsp/admin/questionListFetch" class="dropdown-item">一覧</a>
   					</div>
   				</li> 			
   			</ul>
   			<ul class="navbar-nav ml-auto">
-  				<li class="nav-item"><a href="#" class="nav-link">パスワード変更</a></li> 		
+  				<li class="nav-item"><a href="/CBT/jsp/admin/passwordChange.jsp" class="nav-link">パスワード変更</a></li> 		
   				<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
   			</ul>
   		</nav>

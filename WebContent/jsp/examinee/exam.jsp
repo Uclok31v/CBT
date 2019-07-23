@@ -30,9 +30,6 @@
   			<ul class="navbar-nav">
   				<li><div id="real-clockbox">&nbsp;</div></li>
   			</ul>
-  			<ul class="navbar-nav ml-auto">
-  				<li class="nav-item"><a href="/CBT/jsp/logout" class="nav-link">ログアウト</a></li>
-  			</ul>
   		</nav>
   		
   		<br>
