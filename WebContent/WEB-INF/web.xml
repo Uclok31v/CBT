@@ -169,4 +169,12 @@
     <servlet-name>QuestionSearchServlet</servlet-name>
     <url-pattern>/jsp/admin/questionSearch</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AnswerListFetchServlet</servlet-name>
+    <servlet-class>servlet.AnswerListFetchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnswerListFetchServlet</servlet-name>
+    <url-pattern>/jsp/admin/answerListFetch</url-pattern>
+  </servlet-mapping>
 </web-app>

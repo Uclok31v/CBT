@@ -58,7 +58,13 @@
   			<% for(int i=0; i<userList.size(); i++){ %>
   			<% UserBean user = (UserBean)userList.get(i); %>
   				<tr>
-  					<td><%=user.getUserId() %></td>
+  					<td>
+  					<% if(user.getTimes() != 0){ %>
+  						<a href="./answerListFetch?id=<%=user.getUserId() %>"><%=user.getUserId() %></a>
+  					<% } else { %>
+  						<%=user.getUserId() %>
+  					<% } %>
+  					</td>
   					<td><%=user.getUserName() %></td>
   					<td><%=user.getPassword() %></td>
   					<% if(user.getRole1() == 0){ %><td></td><% } else { %><td>○</td><% } %>

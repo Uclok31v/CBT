@@ -122,6 +122,46 @@ public class AnswerDao extends DriverAccessor{
 			closeConnection(connection);
 		}
 	}
+
+	public ArrayList<AnswerBean> selectAnswerByUserId(String userId) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "select * from answer where user_id = ? order by datetime desc";
+			connection = createConnection();
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, userId);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			ArrayList<AnswerBean> answerList = new ArrayList<AnswerBean>();
+			while (resultSet.next()) {
+				AnswerBean answer = new AnswerBean();
+				answer.setAnswerId(resultSet.getInt("answer_id"));
+				answer.setDateTime(resultSet.getString("datetime"));
+				answer.setUserId(resultSet.getString("user_id"));
+				answer.setQuestionId(resultSet.getString("question_id"));
+				answer.setAnswer(resultSet.getInt("answer"));
+				answer.setCorrectness(resultSet.getInt("correctness"));
+				answerList.add(answer);
+			}
+			
+			statement.close();
+			resultSet.close();
+			
+			return answerList;
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		} finally {
+			closeConnection(connection);
+		}
+	}
 	
 	
 
