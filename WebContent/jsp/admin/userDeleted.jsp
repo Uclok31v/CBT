@@ -46,7 +46,7 @@
   		<h1 class="mt-4 mb-5">受験者削除完了</h1>
   		<div class="card bg-light">
   			<div class="card-body">
-  				<h5 class="card-title">ユーザを削除しました</h5>
+  				<h5 class="card-title">受験者を削除しました</h5>
   			</div>
   		</div>
   		

@@ -54,7 +54,7 @@
   		<h1 class="mt-4 mb-5">受験履歴</h1>
   		<table class="table">
   			<thead class="thead-dark">
-  				<tr><th>回答時刻</th><th>ユーザID</th><th>設問ID</th><th>正否</th></tr>
+  				<tr><th>解答時刻</th><th>ユーザID</th><th>設問ID</th><th>正否</th></tr>
   			</thead>
   			<tbody>
   			<% for(int i=0; i<answerList.size(); i++){ %>

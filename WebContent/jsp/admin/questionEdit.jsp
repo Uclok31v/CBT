@@ -63,7 +63,7 @@
   			</ul>
   		</nav>
   		
-  		<h1 class="mt-4 mb-5">問題登録</h1>
+  		<h1 class="mt-4 mb-5">問題編集</h1>
   		<form action="./questionUpdate" method="post">
   			<div class="form-group mb-4">
   				<label for="question_id">設問ID</label>

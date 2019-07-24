@@ -51,7 +51,7 @@
   		
   		<table  class="table table-hover">
   			<thead>
-  				<tr><th>No.</th><th>問題</th><th>選択肢１</th><th>選択肢２</th><th>選択肢３</th><th>選択肢４</th><th>正解</th><th>あなたの回答</th><th>正否</th></tr>
+  				<tr><th>No.</th><th>問題</th><th>選択肢１</th><th>選択肢２</th><th>選択肢３</th><th>選択肢４</th><th>正解</th><th>あなたの解答</th><th>正否</th></tr>
   			</thead>
   			<tbody>
   			<% for(int i=0; i<answerList.size(); i++){ %>
