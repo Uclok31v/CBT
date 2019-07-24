@@ -3,18 +3,18 @@
 <%@page import="beans.UserBean"%>
 <!DOCTYPE html>
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
-<% String user_id = (String)request.getAttribute("user_id"); %>
-<% String user_name = (String)request.getAttribute("user_name"); %>
+<% String userId = (String)request.getAttribute("user_id"); %>
+<% String userName = (String)request.getAttribute("user_name"); %>
 <% int administrator = (Integer)request.getAttribute("administrator"); %>
-<% int role_1 = (Integer)request.getAttribute("role_1"); %>
-<% int role_2 = (Integer)request.getAttribute("role_2"); %>
-<% int role_3 = (Integer)request.getAttribute("role_3"); %>
-<% int role_4 = (Integer)request.getAttribute("role_4"); %>
-<% int role_5 = (Integer)request.getAttribute("role_5"); %>
-<% int role_6 = (Integer)request.getAttribute("role_6"); %>
-<% int role_7 = (Integer)request.getAttribute("role_7"); %>
-<% int role_8 = (Integer)request.getAttribute("role_8"); %>
-<% int role_9 = (Integer)request.getAttribute("role_9"); %>
+<% int role1 = (Integer)request.getAttribute("role_1"); %>
+<% int role2 = (Integer)request.getAttribute("role_2"); %>
+<% int role3 = (Integer)request.getAttribute("role_3"); %>
+<% int role4 = (Integer)request.getAttribute("role_4"); %>
+<% int role5 = (Integer)request.getAttribute("role_5"); %>
+<% int role6 = (Integer)request.getAttribute("role_6"); %>
+<% int role7 = (Integer)request.getAttribute("role_7"); %>
+<% int role8 = (Integer)request.getAttribute("role_8"); %>
+<% int role9 = (Integer)request.getAttribute("role_9"); %>
 
 <html lang="ja">
   <head>
@@ -69,15 +69,15 @@
   			</thead>
   			<tbody>
   				<tr>
-  					<td><%=user_id %></td>
-  					<td><%=user_name %></td>
+  					<td><%=userId %></td>
+  					<td><%=userName %></td>
   					<% if(administrator == 0){ %><td>受験者</td><% } else { %><td>管理者</td><% } %>
-  					<% if(role_1 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_2 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_3 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_4 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_5 == 0){ %><td></td><% } else { %><td>○</td><% } %>
-  					<% if(role_6 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role1 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role2 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role3 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role4 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role5 == 0){ %><td></td><% } else { %><td>○</td><% } %>
+  					<% if(role6 == 0){ %><td></td><% } else { %><td>○</td><% } %>
   				</tr>
   			</tbody>
   		</table>

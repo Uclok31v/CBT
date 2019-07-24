@@ -3,17 +3,17 @@
 <%@page import="beans.UserBean"%>
 <!DOCTYPE html>
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
-<% String user_id = (String)request.getAttribute("user_id"); %>
-<% String user_name = (String)request.getAttribute("user_name"); %>
-<% int role_1 = (Integer)request.getAttribute("role_1"); %>
-<% int role_2 = (Integer)request.getAttribute("role_2"); %>
-<% int role_3 = (Integer)request.getAttribute("role_3"); %>
-<% int role_4 = (Integer)request.getAttribute("role_4"); %>
-<% int role_5 = (Integer)request.getAttribute("role_5"); %>
-<% int role_6 = (Integer)request.getAttribute("role_6"); %>
-<% int role_7 = (Integer)request.getAttribute("role_7"); %>
-<% int role_8 = (Integer)request.getAttribute("role_8"); %>
-<% int role_9 = (Integer)request.getAttribute("role_9"); %>
+<% String userId = (String)request.getAttribute("user_id"); %>
+<% String userName = (String)request.getAttribute("user_name"); %>
+<% int role1 = (Integer)request.getAttribute("role_1"); %>
+<% int role2 = (Integer)request.getAttribute("role_2"); %>
+<% int role3 = (Integer)request.getAttribute("role_3"); %>
+<% int role4 = (Integer)request.getAttribute("role_4"); %>
+<% int role5 = (Integer)request.getAttribute("role_5"); %>
+<% int role6 = (Integer)request.getAttribute("role_6"); %>
+<% int role7 = (Integer)request.getAttribute("role_7"); %>
+<% int role8 = (Integer)request.getAttribute("role_8"); %>
+<% int role9 = (Integer)request.getAttribute("role_9"); %>
 
 <html lang="ja">
   <head>
@@ -57,35 +57,35 @@
   		<form action="./userUpdate" method="post">
   			<div class="form-group mb-4">
   				<label for="user_id">ユーザID</label>
-  				<input type="text" class="form-control" id="user_id" name="user_id" value="<%=user_id %>" readonly>
+  				<input type="text" class="form-control" id="user_id" name="user_id" value="<%=userId %>" readonly>
   			</div>
   			<div class="form-group mb-4">
   				<label for="user_name">名前</label>
-  				<input type="text" class="form-control" id="user_name" name="user_name" value="<%=user_name %>" required>
+  				<input type="text" class="form-control" id="user_name" name="user_name" value="<%=userName %>" required>
   			</div>
   			<div class="form-group mb-4">ロール<br>
   				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_1" id="role_1" value="1" <% if(role_1 == 1){ %>checked<% } %>>
+  					<input class="form-check-input" type="checkbox" name="role_1" id="role_1" value="1" <% if(role1 == 1){ %>checked<% } %>>
   					<label class="form-check-label" for="role_1">Backend</label>
   				</div>
   				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_2" id="role_2" value="1" <% if(role_2 == 1){ %>checked<% } %>>
+  					<input class="form-check-input" type="checkbox" name="role_2" id="role_2" value="1" <% if(role2 == 1){ %>checked<% } %>>
   					<label class="form-check-label" for="role_2">Frontend</label>
   				</div>
   				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_3" id="role_3" value="1" <% if(role_3 == 1){ %>checked<% } %>>
+  					<input class="form-check-input" type="checkbox" name="role_3" id="role_3" value="1" <% if(role3 == 1){ %>checked<% } %>>
   					<label class="form-check-label" for="role_3">Android</label>
   				</div>
   				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_4" id="role_4" value="1" <% if(role_4 == 1){ %>checked<% } %>>
+  					<input class="form-check-input" type="checkbox" name="role_4" id="role_4" value="1" <% if(role4 == 1){ %>checked<% } %>>
   					<label class="form-check-label" for="role_4">iOS</label>
   				</div>
   				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_5" id="role_5" value="1" <% if(role_5 == 1){ %>checked<% } %>>
+  					<input class="form-check-input" type="checkbox" name="role_5" id="role_5" value="1" <% if(role5 == 1){ %>checked<% } %>>
   					<label class="form-check-label" for="role_5">Architect</label>
   				</div>
   				<div class="form-check form-check-inline mr-4">
-  					<input class="form-check-input" type="checkbox" name="role_6" id="role_6" value="1" <% if(role_6 == 1){ %>checked<% } %>>
+  					<input class="form-check-input" type="checkbox" name="role_6" id="role_6" value="1" <% if(role6 == 1){ %>checked<% } %>>
   					<label class="form-check-label" for="role_6">PM</label>
   				</div>
   			</div>
