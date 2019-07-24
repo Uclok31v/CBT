@@ -3,6 +3,7 @@
 <%@page import="beans.UserBean"%>
 <!DOCTYPE html>
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
+<% if(whoami == null) request.getRequestDispatcher("/jsp/login.jsp").forward(request, response); %>
 
 <html lang="ja">
   <head>

@@ -21,6 +21,7 @@
 <% int role9 = (Integer)request.getAttribute("role_9"); %>
 <% int pattern = (Integer)request.getAttribute("pattern"); %>
 <% String owner = (String)request.getParameter("owner"); %>
+<% if(whoami == null) request.getRequestDispatcher("/jsp/login.jsp").forward(request, response); %>
 
 <html lang="ja">
   <head>

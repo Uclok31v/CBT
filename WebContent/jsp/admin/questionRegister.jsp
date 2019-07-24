@@ -10,6 +10,7 @@
     	  error="";
       }
 %>
+<% if(whoami == null) request.getRequestDispatcher("/jsp/login.jsp").forward(request, response); %>
 
 <html lang="ja">
   <head>

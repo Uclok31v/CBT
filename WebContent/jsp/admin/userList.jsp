@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
 <% ArrayList userList = (ArrayList)request.getAttribute("user-list"); %>
+<% if(whoami == null) request.getRequestDispatcher("/jsp/login.jsp").forward(request, response); %>
 
 <html lang="ja">
   <head>

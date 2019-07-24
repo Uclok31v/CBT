@@ -14,6 +14,7 @@
 <% int role7 = (Integer)request.getAttribute("role_7"); %>
 <% int role8 = (Integer)request.getAttribute("role_8"); %>
 <% int role9 = (Integer)request.getAttribute("role_9"); %>
+<% if(whoami == null) request.getRequestDispatcher("/jsp/login.jsp").forward(request, response); %>
 
 <html lang="ja">
   <head>

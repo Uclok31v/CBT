@@ -10,6 +10,7 @@
 <% Integer result = (Integer)request.getAttribute("result"); %>
 <% ArrayList questionList = (ArrayList)session.getAttribute("question-list"); %>
 <% ArrayList answerList = (ArrayList)request.getAttribute("answer-list"); %>
+<% if(whoami == null) request.getRequestDispatcher("/jsp/login.jsp").forward(request, response); %>
 
 <html lang="ja">
   <head>

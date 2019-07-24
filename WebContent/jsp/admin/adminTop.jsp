@@ -6,6 +6,7 @@
 <% UserBean whoami = (UserBean)session.getAttribute("user"); %>
 <% ArrayList beginnerList = (ArrayList)request.getAttribute("beginner-list"); %>
 <% ArrayList failureList = (ArrayList)request.getAttribute("failure-list"); %>
+<% if(whoami == null) request.getRequestDispatcher("/jsp/login.jsp").forward(request, response); %>
 
 <html lang="ja">
   <head>
