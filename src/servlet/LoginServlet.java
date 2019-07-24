@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.UserBean;
+import dao.AnswerDao;
 import dao.UserDao;
 
 /**
@@ -57,7 +58,14 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("failure-list", failureList);
 				request.getRequestDispatcher("/jsp/admin/adminTop.jsp").forward(request, response);
 			} else {
-				request.getRequestDispatcher("/jsp/examinee/examineeTop.jsp").forward(request, response);
+				boolean qualification = new AnswerDao().selectUserIdByDateTime(userId);
+				if (qualification) {
+					request.getRequestDispatcher("/jsp/examinee/examineeTop.jsp").forward(request, response);
+				} else {
+					request.setAttribute("error", "前回の受験から20日間は再受験できません");
+					request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+				}
+				
 			}
 			
 		} else {
