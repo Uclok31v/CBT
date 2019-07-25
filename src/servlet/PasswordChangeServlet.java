@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.UserBean;
 import dao.UserDao;
+import utility.Hash;
 
 /**
  * Servlet implementation class PasswordChangeServlet
@@ -49,7 +50,7 @@ public class PasswordChangeServlet extends HttpServlet {
 		String newPassword = request.getParameter("newPassword");
 		String rePassword = request.getParameter("rePassword");
 		
-		if (!(currentPassword.equals(password))) {
+		if (!(Hash.getSha256(currentPassword).equals(password))) {
 			request.setAttribute("error", "現在のパスワードが正しくありません");
 			request.getRequestDispatcher("./passwordChange.jsp").forward(request, response);
 		} else if (!(newPassword.equals(rePassword))) {
