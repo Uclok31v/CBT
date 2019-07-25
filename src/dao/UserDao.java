@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 
 import beans.UserBean;
 import utility.DriverAccessor;
+import utility.Hash;
 
 public class UserDao extends DriverAccessor{
 	
@@ -52,6 +53,10 @@ public class UserDao extends DriverAccessor{
 			
 			resultSet.close();
 			
+			if (user.getAdministrator() == 1) {
+				password = Hash.getSha256(password);
+			}
+			
 			if (password.equals(user.getPassword())) {
 				return user;
 			} else {
@@ -78,6 +83,10 @@ public class UserDao extends DriverAccessor{
 			String sql = "insert into user(user_id, user_name, password, administrator, role_1, role_2, role_3, role_4, role_5, role_6, role_7, role_8, role_9, times, datetime) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			connection = createConnection();
 			statement = connection.prepareStatement(sql);
+			
+			if (administrator == 1) {
+				password = Hash.getSha256(password);
+			}
 			
 			statement.setString(1, userId);
 			statement.setString(2, userName);
@@ -426,6 +435,8 @@ public class UserDao extends DriverAccessor{
 			String sql = "update user set password = ? where user_id = ?";
 			connection = createConnection();
 			statement = connection.prepareStatement(sql);
+			
+			newPassword = Hash.getSha256(newPassword);
 			
 			statement.setString(1, newPassword);
 			statement.setString(2, userId);
