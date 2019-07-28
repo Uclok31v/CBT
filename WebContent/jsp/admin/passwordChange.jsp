@@ -56,11 +56,11 @@
   			</div>
   			<div class="form-group mb-4">
   				<label for="newPassword">新しいパスワード</label>
-  				<input type="password" class="form-control" id="newPassword" name="newPassword" required>
+  				<input type="password" class="form-control" id="newPassword" name="newPassword" required minlength="8" maxlength="16" pattern="^[0-9a-zA-Z]+$">
   			</div>
   			<div class="form-group mb-4">
   				<label for="rePassword">新しいパスワード（確認）</label>
-  				<input type="password" class="form-control" id="rePassword" name="rePassword" required>
+  				<input type="password" class="form-control" id="rePassword" name="rePassword" required minlength="8" maxlength="16" pattern="^[0-9a-zA-Z]+$">
   			</div>
   			<div>
   				<input type="submit" value="変更" class="btn btn-warning">&nbsp;

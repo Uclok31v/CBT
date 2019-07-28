@@ -54,7 +54,7 @@
   		<form action="./questionRegister" method="post">
   			<div class="form-group mb-4">
   				<label for="question_id">設問ID</label>
-  				<input type="text" class="form-control" id="question_id" name="question_id" required>
+  				<input type="text" class="form-control" id="question_id" name="question_id" required maxlength="10" pattern="^[0-9a-zA-Z]+$">
   			</div>
   			<div class="form-group mb-4">
   				<label for="text">問題文</label>

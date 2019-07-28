@@ -53,11 +53,11 @@
   		<form action="./userRegister" method="post" name="userRegister">
   			<div class="form-group mb-4">
   				<label for="user_id">ユーザID</label>
-  				<input type="text" class="form-control" id="user_id" name="user_id" required>
+  				<input type="text" class="form-control" id="user_id" name="user_id" required maxlength="20" pattern="^[0-9a-zA-Z]+$">
   			</div>
   			<div class="form-group mb-4">
   				<label for="user_name">名前</label>
-  				<input type="text" class="form-control" id="user_name" name="user_name" required>
+  				<input type="text" class="form-control" id="user_name" name="user_name" required maxlength="20" pattern="^[a-zA-Z0-9０-９ぁ-んァ-ン一-龥ｧ-ﾝﾞﾟーーｰ()（）]+$">
   			</div>
   			<div class="form-group mb-4">ユーザ区分<br>
   				<div class="form-check form-check-inline mr-4">

@@ -62,7 +62,7 @@
   			</div>
   			<div class="form-group mb-4">
   				<label for="user_name">名前</label>
-  				<input type="text" class="form-control" id="user_name" name="user_name" value="<%=userName %>" required>
+  				<input type="text" class="form-control" id="user_name" name="user_name" value="<%=userName %>" required maxlength="20" pattern="^[a-zA-Z0-9０-９ぁ-んァ-ン一-龥ｧ-ﾝﾞﾟーーｰ()（）]+$">
   			</div>
   			<div class="form-group mb-4">ロール<br>
   				<div class="form-check form-check-inline mr-4">
