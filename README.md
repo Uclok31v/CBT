@@ -1,25 +1,31 @@
 # CBT
-Computer Based Testing Application
 
-## 概要
-職場でプロジェクト新規参画者向けに知識の理解度を確認するテスト実施用に開発したCBTアプリケーション。
-受験者の職務および受験回数に応じて、登録されている問題から出題するものを抽出して問題セットを構成する。
-テストは４択形式である。
+## Overvies
+This is a four-choice orthodox Computer Based Testing Application.
+You can set questions to be asked according to the attributes of the examinees and the number of times they have taken the exam.
 
-## 機能一覧
-### 共通
-- ログイン
-- ログアウト
-### 管理者
-- ユーザ（管理者/受験者）登録
-- 受験者閲覧
-- 受験者編集
-- 受験者削除
-- 問題登録
-- 問題閲覧
-- 問題編集
-- 問題削除
-- パスワード変更（自身）
-### 受験者
-- 問題解答
-- 採点・合否判定
+## List of Functions
+### Common
+- Log in
+- Log out
+### Administrator
+- Users (administrators / examinees) registration
+- Examinees viewing
+- Examinees editing
+- Examinees deletion
+- Questions registration
+- Questions viewing
+- Questions editing
+- Questions deletion
+- Password change
+### Examinee
+- Problem set construction
+- Question
+- Answer
+- Scoring
+- Pass / fail judgment
+
+### Dependency
+- Java(Servlet/JSP)
+- Bootstrap
+- MySQL
