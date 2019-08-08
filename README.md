@@ -25,7 +25,8 @@ You can set questions to be asked according to the attributes of the examinees a
 - Scoring
 - Pass / fail judgment
 
-### Dependency
-- Java(Servlet/JSP)
-- Bootstrap
-- MySQL
+## Dependency
+- Java SE8(1.8.0_74)
+- Bootstrap 4.3.1
+- MySQL 8.0.16
+- Apache Commons Lang 3-3.9
