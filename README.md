@@ -1,6 +1,6 @@
 # CBT
 
-## Overvies
+## Overview
 This is a four-choice orthodox Computer Based Testing Application.
 You can set questions to be asked according to the attributes of the examinees and the number of times they have taken the exam.
 
@@ -19,7 +19,7 @@ You can set questions to be asked according to the attributes of the examinees a
 - Questions deletion
 - Password change
 ### Examinee
-- Problem set construction
+- Exam Question set construction
 - Question
 - Answer
 - Scoring
