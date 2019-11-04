@@ -1,6 +1,10 @@
 # Mac auto-created file
 .DS_Store
 
+.settings
+.classpath
+.project
+
 # Compiled class file
 *.class
 
